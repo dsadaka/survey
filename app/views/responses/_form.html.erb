@@ -1,0 +1,8 @@
+<%= form_with(model: response, html: { name: 'response-form' }) do |form| %>
+  <div>
+    Yes&nbsp; <%= form.radio_button :answer, :yes, onclick: "this.response-form.submit();" %>
+    &nbsp;No&nbsp; <%= form.radio_button :answer, :no, onclick: "this.response-form.submit();" %>
+    <%= form.hidden_field :question_id, value: question.id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+<% end %>

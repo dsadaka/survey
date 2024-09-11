@@ -4,11 +4,14 @@ source "https://rubygems.org"
 gem "rails", "~> 7.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+
+# Additional gems for this project
 gem 'bootstrap'
 gem 'bootstrap-icons'
 gem 'sassc-rails'
 gem 'nokogiri'
 gem 'sidekiq'
+gem 'devise'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
@@ -53,7 +56,7 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 
-  gem "rspec-rails"
+  # gem "rspec-rails"
   gem "factory_bot_rails"
   gem "faker"
   gem 'rails-controller-testing'
