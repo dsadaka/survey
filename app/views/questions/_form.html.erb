@@ -1,22 +1,23 @@
-<%= form_with(model: question) do |form| %>
-  <% if question.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
+<%= turbo_frame_tag "question_form_frame" do %>
+  <%= bootstrap_form_for(question) do |form| %>
+    <% if question.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-      <ul>
-        <% question.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% question.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div style="width:50%">
+      <%= form.text_area :question %>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :question, style: "display: block" %>
-    <%= form.text_area :question %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
+

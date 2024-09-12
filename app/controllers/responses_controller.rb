@@ -21,7 +21,7 @@ class ResponsesController < ApplicationController
 
   # POST /responses or /responses.json
   def create
-    @response = Response.new(response_params)
+    @response = Response.new(response_params.merge(user_id: current_user.id))
 
     respond_to do |format|
       if @response.save
@@ -37,7 +37,7 @@ class ResponsesController < ApplicationController
   # PATCH/PUT /responses/1 or /responses/1.json
   def update
     respond_to do |format|
-      if @response.update(response_params)
+      if @response.update(response_params.merge(user_id: current_user.id))
         format.html { redirect_to questions_url(@response), notice: "Response was successfully updated." }
         format.json { render :show, status: :ok, location: @response }
       else
@@ -65,6 +65,6 @@ class ResponsesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def response_params
-      params.require(:response).permit(:answer, :question_id, :user_id)
+      params.require(:response).permit(:answer, :question_id)
     end
 end

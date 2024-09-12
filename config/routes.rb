@@ -1,3 +1,8 @@
+require 'sidekiq/web'
+Survey::Application.routes.draw do
+  mount Sidekiq::Web => "/sidekiq" # mount Sidekiq::Web
+end
+
 Rails.application.routes.draw do
   devise_for :users
   resources :users

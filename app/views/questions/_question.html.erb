@@ -1,12 +1,15 @@
-<% response = Response.find_by_question_id_and_user_id(question.id, current_user.id) || Response.new %>
+<%# locals[:current_user_signed_in] ||= local_assigns[:current_user_signed_in] %>
+<%# locals[:response] ||= local_assigns[:response] %>
 <tr>
   <td><%= question.question %> </td>
   <td><%= question.username %></td>
   <td class="center"><%= question.yes_count || 0 %></td>
   <td class="center"><%= question.no_count || 0 %></td>
-  <td>
-    <%= render "responses/form", question: question, response: response %>
-  </td>
+  <% if local_assigns[:current_user_signed_in] %>
+    <td>
+      <%= render "responses/form", question: question, response: local_assigns[:response]  %>
+    </td>
+  <% end %>
   <td>
     <%= button_to question, class: "btn shadow-none", :method=> :delete,
                   data: { bs_toggle: "tooltip",

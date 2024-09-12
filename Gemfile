@@ -7,11 +7,13 @@ gem "sprockets-rails"
 
 # Additional gems for this project
 gem 'bootstrap'
+gem "bootstrap_form", "~> 5.4"
 gem 'bootstrap-icons'
+gem 'devise'
+gem 'devise-bootstrap-form'
 gem 'sassc-rails'
 gem 'nokogiri'
 gem 'sidekiq'
-gem 'devise'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
