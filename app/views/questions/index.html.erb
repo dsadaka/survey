@@ -4,11 +4,6 @@
 <% content_for :title, "Surveys" %>
 
 <div class="container-md">
-  <p style="color: green"><%= notice %></p>
-  <div class="card shadow">
-    <h2 style="padding-left: 15px;">Surveys</h2>
-  </div>
-  <hr>
   <% if @current_user_signed_in %>
     <div class="logout-btn">
       <%= button_to(
@@ -18,9 +13,10 @@
             class: 'btn btn-warning'
           ) %>
     </div>
-  <% end %>
-  <%= render "form", question: Question.new if @current_user_signed_in %>
-  <% unless @current_user_signed_in %>
+
+    <%= render "form", question: Question.new %>
+
+  <% else %>
     <p></p>
     <%= button_to(
           "Log In to Add or Respond to a Question",
@@ -29,7 +25,7 @@
           class: 'btn btn-success'
         ) %>
   <% end %>
-
+  
   <p></p>
 
   <div class="container-sm">
@@ -41,8 +37,8 @@
       <th class="center" scope="col">No's</th>
       <% if @current_user_signed_in %>
         <th scope="col">Response</th>
+        <th></th>
       <% end %>
-      <th></th>
       </thead>
       <tbody id="questions" class="table-group-divider">
       <turbo-stream action="prepend" target="questions">

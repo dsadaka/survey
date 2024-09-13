@@ -1,4 +1,4 @@
-<%= form_with(model: local_assigns[:response], data: {turbo: false}, html: { name: 'response-form' }) do |form| %>
+<%= form_with(model: local_assigns[:response], html: { name: 'response-form' }) do |form| %>
   <div>
     Yes&nbsp; <%= form.radio_button :answer, :yes, data: { controller: 'authentic' }, onclick: "this.response-form.submit();" %>
     &nbsp;No&nbsp; <%= form.radio_button :answer, :no, data: { controller: 'authentic' }, onclick: "this.response-form.submit();" %>

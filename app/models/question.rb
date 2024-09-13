@@ -44,5 +44,4 @@ SQL
   def response
     Response.find_by_question_id_and_user_id(id, user_id) || Response.new
   end
-
 end

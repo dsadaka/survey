@@ -1,25 +1,25 @@
-<%# locals[:current_user_signed_in] ||= local_assigns[:current_user_signed_in] %>
-<%# locals[:response] ||= local_assigns[:response] %>
 <tr>
-  <td><%= question.question %> </td>
+  <td width="55%"><%= question.question %> </td>
   <td><%= question.username %></td>
-  <td class="center"><%= question.yes_count || 0 %></td>
-  <td class="center"><%= question.no_count || 0 %></td>
+  <td class="center"><%= yes_pct(question.yes_count, question.no_count) || 0 %></td>
+  <td class="center"><%= no_pct(question.yes_count, question.no_count) || 0 %></td>
   <% if local_assigns[:current_user_signed_in] %>
     <td>
       <%= render "responses/form", question: question, response: local_assigns[:response]  %>
     </td>
   <% end %>
-  <td>
-    <%= button_to question, class: "btn shadow-none", :method=> :delete,
-                  data: { bs_toggle: "tooltip",
-                          bs_title: "Delete this question",
-                          bs_placement: 'right',
-                          turbo_method: :delete,
-                          turbo_confirm: "Are you sure you want to delete #{question.question}?" } do %>
-      <i class="bi-trash" style="font-size: 1rem; color: red;"></i>
-    <% end %>
-  </td>
+  <% if local_assigns[:current_user_signed_in] %>
+    <td>
+      <%= button_to question, class: "btn shadow-none", :method=> :delete,
+                    data: { bs_toggle: "tooltip",
+                            bs_title: "Delete this question",
+                            bs_placement: 'right',
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure you want to delete #{question.question}?" } do %>
+        <i class="bi-trash" style="font-size: 1rem; color: red;"></i>
+      <% end %>
+    </td>
+  <% end %>
 </tr>
 <script type=application/javascript>
 

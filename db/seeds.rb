@@ -19,4 +19,3 @@ User.create!(username: 'george',
              email: 'georgeburdell@alto.com',
              password: '123456789',
              password_confirmation: '123456789')
-
