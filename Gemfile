@@ -13,7 +13,7 @@ gem 'devise'
 gem 'devise-bootstrap-form'
 gem 'sassc-rails'
 gem 'nokogiri'
-gem 'sidekiq', "7.0.9"
+gem 'sidekiq'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
