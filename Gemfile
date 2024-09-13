@@ -13,7 +13,7 @@ gem 'devise'
 gem 'devise-bootstrap-form'
 gem 'sassc-rails'
 gem 'nokogiri'
-gem 'sidekiq'
+gem 'sidekiq', "7.0.9"
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
@@ -67,6 +67,14 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem 'capistrano-nginx', '~> 1.0.0'
+  gem "capistrano", "~> 3.17", require: false
+  gem 'capistrano-rails-console', require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma', github: "seuros/capistrano-puma",   require: false
+  gem 'capistrano-sidekiq'
 end
 
 group :test do
