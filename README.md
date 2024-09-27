@@ -53,14 +53,3 @@ Run full test suite and the test coverage will appear on the last line:
 ```shell
 $ bundle exec rspec
 ```
-
-To see any linting errors:
-
-```shell
-$ rubocop
-```
-
-## Credits
-https://github.com/danwa5
-
-https://github.com/joelparkerhenderson
