@@ -9,7 +9,7 @@ set :server_name, 'apple.web-site1.com'
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
-server "#{fetch(:server_name)}", user: "ubuntu", roles: %w{app web production}, primary: true
+server "#{fetch(:server_name)}", user: "ubuntu", roles: %w{app web production sudo}, primary: true
 
 
 

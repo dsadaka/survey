@@ -12,9 +12,6 @@ Developed using Ruby on Rails Rails 7.2.1, this app uses Hotwire components: Tur
 -   Create new questions
 -   Answer questions (Yes or No)
 
-## Give it a try at...
-
-http://apple.web-site1.com
                        
 ## Setup
 

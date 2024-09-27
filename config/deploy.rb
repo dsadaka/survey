@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.19.1"
 
-set :application, "weather"
+set :application, "survey"
 set :repo_url, "git@github.com:dsadaka/survey.git"
 
 # Default branch is :master
@@ -9,7 +9,7 @@ ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :deploy_via,      :remote_cache
 set :format, :pretty
 set :log_level, :debug
-set :rvm_ruby_version, '3.1.4@survey --create'      # Defaults to: 'default'
+set :rvm_ruby_version, '3.2.3@survey --create'      # Defaults to: 'default'
 set :bundle_binstubs, nil
 set :rvm_type, :system
 
@@ -27,7 +27,7 @@ set :rvm_type, :system
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, 'config/master.key', '.env', "config/database.yml", 'storage/production.sqlite3'
+append :linked_files, 'config/master.key', "config/database.yml", 'storage/production.sqlite3'
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -55,8 +55,12 @@ set :puma_init_active_record, true  # Change to true if using ActiveRecord
 set :puma_workers,  2
 set :puma_threads, [5, 16]
 set :puma_enable_socket_service, true
+set :puma_role, :web
 
-set :nginx_config_name, "#{fetch(:application)}_#{fetch(:stage)}"
+set :nginx_config_name, "#{fetch(:application)}_#{fetch(:stage)}.conf"
 set :nginx_server_name, -> {"localhost #{fetch(:server_name)}"}
 set :nginx_listen, 80
-set :nginx_roles, :app
+set :nginx_roles, :sudo
+set :app_server_socket, "#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
+set :app_server_port, 3000
+
