@@ -1,0 +1,6 @@
+<%= turbo_stream.replace "yes_question_#{@response.question.id}" do %>
+  <%= render partial: 'questions/yes_pct', locals: { question: @index_row } %>
+<% end %>
+<%= turbo_stream.replace "no_question_#{@response.question.id}" do %>
+  <%= render partial: 'questions/no_pct', locals: { question: @index_row } %>
+<% end %>
