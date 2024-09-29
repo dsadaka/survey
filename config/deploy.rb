@@ -64,3 +64,6 @@ set :nginx_roles, :sudo
 set :app_server_socket, "#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :app_server_port, 3000
 
+set :sidekiq_service_unit_user, :system
+set :sidekiq_user, "#{fetch(:user)}"
+set :sidekiq_roles, :job

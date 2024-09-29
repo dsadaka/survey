@@ -1,6 +1,7 @@
 set :stage, :production
 set :rails_env, "production"
-set :server_name, 'apple.web-site1.com'
+# set :server_name, 'apple.web-site1.com'
+set :server_name, 'ec2-100-25-188-100.compute-1.amazonaws.com'
 
 # server-based syntax
 # ======================
@@ -9,7 +10,7 @@ set :server_name, 'apple.web-site1.com'
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
-server "#{fetch(:server_name)}", user: "ubuntu", roles: %w{app web production sudo}, primary: true
+server "#{fetch(:server_name)}", user: "ubuntu", roles: %w{app web production sudo job}, primary: true
 
 
 
