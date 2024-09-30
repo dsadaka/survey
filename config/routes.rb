@@ -1,9 +1,9 @@
 require 'sidekiq/web'
 Survey::Application.routes.draw do
   mount Sidekiq::Web => "/sidekiq" # mount Sidekiq::Web
+  mount ActionCable.server => "/cable"
 end
 
-mount ActionCable.server => "/cable"
 
 
 Rails.application.routes.draw do
