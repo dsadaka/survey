@@ -14,6 +14,7 @@ gem 'devise-bootstrap-form'
 gem 'sassc-rails'
 gem 'nokogiri'
 gem 'sidekiq'
+gem 'kaminari'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
