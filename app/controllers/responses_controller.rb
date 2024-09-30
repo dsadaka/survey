@@ -25,9 +25,7 @@ class ResponsesController < ApplicationController
 
     respond_to do |format|
       if @response.save
-        @index_row = @response.question.index_row
-        format.html { redirect_to question_url, notice: "Response was successfully created." }
-        format.turbo_stream { render :update }
+        format.turbo_stream { render :update, notice: "Response was successfully created." }
         format.json { render :show, status: :created, location: @response }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,8 +38,6 @@ class ResponsesController < ApplicationController
   def update
     respond_to do |format|
       if @response.update(response_params.merge(user_id: current_user.id))
-        format.html { redirect_to questions_url, notice: "Response was successfully updated." }
-        @index_row = @response.question.index_row
         format.turbo_stream { render :update }
         format.json { render :show, status: :ok, location: @response }
       else
