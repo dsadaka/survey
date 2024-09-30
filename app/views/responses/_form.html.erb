@@ -2,6 +2,6 @@
     <div>
       Yes&nbsp; <%= form.radio_button :answer, :yes, data: { controller: 'authentic' }, onclick: "this.response-form.requestSubmit();" %>
       &nbsp;No&nbsp; <%= form.radio_button :answer, :no, data: { controller: 'authentic' }, onclick: "this.response-form.requestSubmit();" %>
-      <%= form.hidden_field :question_id, value: local_assigns[:question].id %>
+      <%= form.hidden_field :question_id, value: question.id %>
     </div>
   <% end %>

@@ -44,7 +44,7 @@ Rails.application.configure do
   # config.action_cable.url = "wss://example.com/cable"
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
   config.action_cable.mount_path = "/cable"
-  config.action_cable.url = "wss://apple.weather.com/cable"
+  config.action_cable.url = "ws://apple.weather.com/cable"
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
@@ -100,6 +100,6 @@ Rails.application.configure do
   #   "example.com",     # Allow requests from example.com
   #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
   # ]
-  # Skip DNS rebinding protection for the default health check endpoint.
+  # Skip DNS rebinding protection for the default health check endRequest origin not allowed:point.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 end

@@ -5,9 +5,9 @@
       <%= render 'questions/no_pct', question: question %>
       <% if local_assigns[:current_user_signed_in] %>
         <td>
-          <%= turbo_frame_tag "response_form_frame" do %>
+          <turbo_frame id=<%= dom_id(question, :response_form_frame) %>>
             <%= render "responses/form", question: question, response: local_assigns[:response]  %>
-          <% end %>
+          </turbo_frame>
         </td>
       <% end %>
       <% if local_assigns[:current_user_signed_in] %>
