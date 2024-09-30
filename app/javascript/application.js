@@ -4,5 +4,5 @@ import "@hotwired/stimulus"
 import "controllers"
 import "popper"
 import "bootstrap"
-import mrujs from "mrujs"
-mrujs.start()
+// import mrujs from "mrujs"
+// mrujs.start()
