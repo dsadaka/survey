@@ -31,7 +31,7 @@ class ResponsesController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @response.errors, status: :unprocessable_entity }
-        format.turbo_stream { render :update }
+        format.turbo_stream { redirect_to questions_url, notice: "An error occurred creating response." }
       end
     end
   end
@@ -45,6 +45,7 @@ class ResponsesController < ApplicationController
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @response.errors, status: :unprocessable_entity }
+        format.turbo_stream { redirect_to questions_url, notice: "An error occurred updating response." }
       end
     end
   end

@@ -6,6 +6,11 @@ Developed using Ruby on Rails Rails 7.2.1, this app uses Hotwire components: Tur
 
 ![Screenshot](https://website1-screenshots.s3.amazonaws.com/Surveys+Logged+In.png)
 
+         
+## Improvements since Version 1.
+- Full page refresh no longer occurs when a question is answered.  The Yes and No percentages are refreshed via a broadcasted turbo stream
+- Pagination added to Survey index page
+- No Sidekiq necessary
 
 ## Features
 
@@ -24,7 +29,6 @@ Developed using Ruby on Rails Rails 7.2.1, this app uses Hotwire components: Tur
   - this step creates the database, loads the schema and seeds the database with the following users
     - admin, palo and george
     - their passwords are all 123456789
-- sidekiq (in another terminal window)
 - rail s
 
 ## Go!
@@ -42,14 +46,10 @@ Developed using Ruby on Rails Rails 7.2.1, this app uses Hotwire components: Tur
 -   redis server
                                  
 
-## Troubleshooting
-                
-- If Question grid does not update after submitting a new question, be sure Sidekiq is running (and redis)
-
 ## Tests
 
 Run full test suite and the test coverage will appear on the last line:
 
 ```shell
-$ bundle exec rspec
+$ rspec
 ```
