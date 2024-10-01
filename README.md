@@ -33,7 +33,7 @@ Developed using Ruby on Rails Rails 7.2.1, this app uses Hotwire components: Tur
 - rail s
 
 ## Go!
-Test locally or at http://apple.web-site1.com
+Test locally or at http://survey.web-site1.com
 
 - login as any user in one browser window 
 - open a different browser or run an incognito chrome window and login as a different user
