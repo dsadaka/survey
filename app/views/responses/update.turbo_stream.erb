@@ -1,6 +1,5 @@
-<%= turbo_stream.replace "yes_question_#{@response.question.id}" do %>
-  <%= render partial: 'questions/yes_pct', locals: { question: @index_row } %>
-<% end %>
-<%= turbo_stream.replace "no_question_#{@response.question.id}" do %>
-  <%= render partial: 'questions/no_pct', locals: { question: @index_row } %>
+<%= turbo_stream.replace dom_id(@response.question, :response_form_frame) do %>
+  <turbo_frame id=<%= dom_id(@response.question, :response_form_frame) %>>
+    <%= render "responses/form", question: @response.question, response: @response  %>
+  </turbo_frame>
 <% end %>

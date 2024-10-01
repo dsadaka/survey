@@ -1,6 +1,6 @@
 RSpec.describe ResponsesController, type: :controller do
   let!(:question) { create(:question) }
-  let(:do_call) { post :create, params: { response: { answer: :yes, question_id: question.id } } }
+  let(:do_call) { post :create, params: { response: { answer: :yes, question_id: question.id } }, as: :turbo_stream }
 
   describe 'POST #create' do
     context 'when user does not exist' do

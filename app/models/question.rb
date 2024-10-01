@@ -9,7 +9,7 @@ class Question < ApplicationRecord
   end
 
   def index_row
-    Question.find_by_sql(response_count(id)).first
+    @index_row ||= Question.find_by_sql(response_count(id)).first
   end
 
   def self.response_counts
