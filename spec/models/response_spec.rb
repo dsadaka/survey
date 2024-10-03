@@ -1,5 +1,15 @@
 
 RSpec.describe Response, type: :model do
+  describe 'TurboStream' do
+    context 'when new record is saved' do
+      let(:response) { build(:response)}
+
+      it 'will fire off an ActionCable blast' do
+        expect { response.save }.to broadcast_to('questions').at_least(3).times
+      end
+    end
+  end
+
   describe 'uniqueness on question and user validation' do
     let(:user1) { create(:user) }
     let(:user2) { create(:user) }
