@@ -8,10 +8,11 @@ Developed using Ruby on Rails Rails 7.2.1, this app uses Hotwire components: Tur
 
          
 ## Improvements since Version 1.
+- Realtime updates across browsers
 - Full page refresh no longer occurs when a question is answered.  The Yes and No percentages are refreshed via a broadcasted turbo stream
 - Pagination added to Survey index page
 - No Sidekiq necessary
-- Deployed to http://apple.web-site1.com
+- Deployed to http://survey.web-site1.com
 
 ## Features
 
@@ -31,7 +32,6 @@ Developed using Ruby on Rails Rails 7.2.1, this app uses Hotwire components: Tur
     - admin, palo and george
     - their passwords are all 123456789
 - rail s
-
 ## Go!
 
 - login as any user in one browser window 
