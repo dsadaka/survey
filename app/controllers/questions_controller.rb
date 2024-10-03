@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[ show edit update destroy ]
-  before_action :set_current_user
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [ :index ]
 
@@ -66,9 +65,6 @@ class QuestionsController < ApplicationController
       @question = Question.find(params[:id])
     end
 
-    def set_current_user
-      @current_user_signed_in = user_signed_in?
-    end
 
     # Only allow a list of trusted parameters through.
     def question_params

@@ -1,0 +1,4 @@
+# frozen_string_literal: true
+class Current < ActiveSupport::CurrentAttributes
+  attribute :user, :user_signed_in
+end

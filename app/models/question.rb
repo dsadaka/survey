@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   belongs_to :user
   has_many :responses, dependent: :destroy
 
-  after_create_commit -> { broadcast_prepend_to "questions", partial: "questions/question", locals: { question: index_row, response: Response.new, current_user_signed_in: true }, target: "questions" }
+  after_create_commit -> { broadcast_prepend_to "questions", partial: "questions/question", locals: { question: index_row, response: Response.new, current_user_signed_in: Current.user_signed_in }, target: "questions" }
 
   def self.index_page
     find_by_sql(self.response_counts)
